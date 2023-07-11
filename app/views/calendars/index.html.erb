@@ -4,6 +4,7 @@
     <%= f.date_field :date, class: 'date-select' %>
     <%= f.label :予定を入力, class: 'lavel' %>
     <%= f.text_field :plan, class: 'text-input' %>
+    <%= f.hidden_field :calendars, value: '1' %>
     <%= f.submit '保存' %>
   <% end %>
 </div>
@@ -12,7 +13,7 @@
     <% @week_days.each do |day| %>
       <div class='item'>
         <div class='date'>
-          <% day[:month] %>/<% day[:date] %>
+          <%= "#{day[:month]}/#{day[:date]}" %>
         </div>
         <ul class='content'>
         <% if day[:plans].length != 0 %>
